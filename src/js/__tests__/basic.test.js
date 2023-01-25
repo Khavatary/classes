@@ -38,3 +38,18 @@ test('check damage', () => {
   player.damage(40);
   expect(player.health).toBe(30);
 });
+
+test('check Character type', () => {
+  const char = new Character('Belk', 'Daemon');
+  const expected = {
+    name: 'Belk', type: 'Daemon', health: 100, level: 1,
+  };
+  expect(char).toEqual(expected);
+});
+
+test('check Character type 2', () => {
+  expect(() => {
+    // eslint-disable-next-line no-unused-vars
+    const ch1 = new Character('Belk', 123123123);
+  }).toThrow();
+});

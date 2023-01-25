@@ -1,6 +1,7 @@
 export default class Character {
   constructor(name, type) {
-    if (typeof name !== 'string' || name.length < 2 || name.length > 10) {
+    const types = ['Bowerman', 'Daemon', 'Magician', 'Swordsman', 'Undead', 'Zombie'];
+    if (typeof name !== 'string' || name.length < 2 || name.length > 10 || types.includes(type) === false) {
       throw new Error('Ошибка ввода данных!');
     }
     this.type = type;
