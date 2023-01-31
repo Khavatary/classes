@@ -1,8 +1,11 @@
 export default class Character {
   constructor(name, type) {
     const types = ['Bowerman', 'Daemon', 'Magician', 'Swordsman', 'Undead', 'Zombie'];
-    if (typeof name !== 'string' || name.length < 2 || name.length > 10 || types.includes(type) === false) {
-      throw new Error('Ошибка ввода данных!');
+    if (typeof name !== 'string' || name.length < 2 || name.length > 10) {
+      throw new Error('Ошибка ввода имени!');
+    }
+    if (types.includes(type) === false) {
+      throw new Error('Ошибка ввода типа!');
     }
     this.type = type;
     this.name = name;
@@ -17,7 +20,7 @@ export default class Character {
       this.defence += (this.defence / 100) * 20;
       this.health = 100;
     } else {
-      throw new Error('нельзя повысить левел умершего');
+      throw new Error('Нельзя повысить левел умершего!');
     }
   }
 
